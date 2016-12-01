@@ -25,17 +25,43 @@ ul {
     list-style: none;
 }
 
-.check {
-    background-color: transparent;
-    border: 2px solid #CCC;
-    border-radius: 100%;
-    width: 16px;
-    height: 16px;
+img {
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 
-.check.checked {
-    border-color: #008CBA;
-    background-color: #008CBA;
+.checked {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.checked::after {
+    content: "";
+    z-index: 2;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.checked::before {
+    content: "✓";
+    z-index: 3;
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #008CBA;
+    font-size: 2rem;
 }
 
 .list {
@@ -56,7 +82,7 @@ ul {
     width: 100%;
     border-bottom: 1px solid #EFEFEF;
     align-items: center;
-    padding: 0 24px 0 8px;
+    padding: 0 16px 0 8px;
 }
 
 .cells em {
@@ -72,10 +98,9 @@ ul {
 .cells i {
     font-size: 0.8rem;
     font-style: italic;
-    margin-right: 16px;
 }
 
-.cells img {
+.cells .thumb {
     padding: 4px 0;
 }
 

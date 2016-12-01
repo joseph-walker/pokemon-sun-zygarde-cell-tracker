@@ -64,7 +64,17 @@ viewCell activeCellIndeces index cell =
         li
             [ onClick <| ToggleCell index
             ]
-            [ img [ src cell.thumbnail ] []
+            [ div
+                [ classList
+                    [ ("checked", isActiveCellIndex)
+                    , ("thumb", True)
+                    ]
+                ]
+                [ img
+                    [ src cell.thumbnail
+                    ]
+                    []
+                ]
             , em
                 [ classList
                     [ ("struck", isActiveCellIndex)
@@ -73,13 +83,6 @@ viewCell activeCellIndeces index cell =
                 [ text cell.location
                 ]
             , i [] [ text cell.notes ]
-            , span
-                [ classList
-                    [ ("check", True)
-                    , ("checked", isActiveCellIndex)
-                    ]
-                ]
-                []
             ]
 
 view : Model -> Html Action
