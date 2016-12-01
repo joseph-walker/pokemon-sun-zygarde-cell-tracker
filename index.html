@@ -1,0 +1,501 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <div id="app"></div>
+        <script src="/zygarde.js"></script>
+        <script>
+            (function() {
+                var flags = [
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/4.jpg",
+                        "location": "Route 1",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/14.jpg",
+                        "location": "Route 1",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/1.jpg",
+                        "location": "Route 1 - Outskirts",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/12.jpg",
+                        "location": "Route 1 - Trainer School",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/11.jpg",
+                        "location": "Route 2",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/3.jpg",
+                        "location": "Route 3",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/6.jpg",
+                        "location": "Route 3",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/7.jpg",
+                        "location": "Hau'oli Cemetery",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/9.jpg",
+                        "location": "Hau'oli City - Shopping District",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/10.jpg",
+                        "location": "Hau'oli City - Shopping District",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/13.jpg",
+                        "location": "Iki Town",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/5.jpg",
+                        "location": "Kala'e Bay",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/2.jpg",
+                        "location": "Ruins of Conflict - Outside",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/melemele/8.jpg",
+                        "location": "Verdant Cavern - Trial Site",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/1.jpg",
+                        "location": "Route 4",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/6.jpg",
+                        "location": "Route 5",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/14.jpg",
+                        "location": "Route 7",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/5.jpg",
+                        "location": "Route 8",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/18.jpg",
+                        "location": "Route 8",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/9.jpg",
+                        "location": "Akala Outskirts",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/8.jpg",
+                        "location": "Diglett's Tunnel",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/10.jpg",
+                        "location": "Hano Beach",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/11.jpg",
+                        "location": "Hano Beach",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/7.jpg",
+                        "location": "Heahea City",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/12.jpg",
+                        "location": "Heahea City",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/16.jpg",
+                        "location": "Konikoni City",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/15.jpg",
+                        "location": "Lush Jungle - Cave",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/2.jpg",
+                        "location": "Paniola Ranch",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/17.jpg",
+                        "location": "Paniola Ranch",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/3.jpg",
+                        "location": "Royal Avenue",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/13.jpg",
+                        "location": "Royal Avenue",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/akala/4.jpg",
+                        "location": "Wela Volcano Park - Top",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/4.jpg",
+                        "location": "Route 10",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/25.jpg",
+                        "location": "Route 11",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/5.jpg",
+                        "location": "Route 12",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/6.jpg",
+                        "location": "Route 12",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/8.jpg",
+                        "location": "Route 13",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/27.jpg",
+                        "location": "Route 13",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/10.jpg",
+                        "location": "Route 14",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/28.jpg",
+                        "location": "Route 14",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/9.jpg",
+                        "location": "Route 15",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/19.jpg",
+                        "location": "Route 16",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/14.jpg",
+                        "location": "Route 17",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/15.jpg",
+                        "location": "Route 17",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/11.jpg",
+                        "location": "Aether House",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/7.jpg",
+                        "location": "Blush Mountain",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/20.jpg",
+                        "location": "Haina Desert",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/24.jpg",
+                        "location": "Hokulani Observatory",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/3.jpg",
+                        "location": "Malie City - Outer Cape",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/2.jpg",
+                        "location": "Malie City",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/22.jpg",
+                        "location": "Malie City",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/1.jpg",
+                        "location": "Malie Garden",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/18.jpg",
+                        "location": "Mount Lanakila - High Mountainside",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/17.jpg",
+                        "location": "Mount Lanakila - Mountainside",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/16.jpg",
+                        "location": "Po Town",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/29.jpg",
+                        "location": "Po Town",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/21.jpg",
+                        "location": "Ruins of Abundance - Outside",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/23.jpg",
+                        "location": "Secluded Shore",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/26.jpg",
+                        "location": "Secluded Shore",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/30.jpg",
+                        "location": "Tapu Village",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/12.jpg",
+                        "location": "Ula'ula Meadow",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/ulaula/13.jpg",
+                        "location": "Ula'ula Meadow",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/5.jpg",
+                        "location": "Ancient Poni Path",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/6.jpg",
+                        "location": "Ancient Poni Path",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/25.jpg",
+                        "location": "Ancient Poni Path",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/7.jpg",
+                        "location": "Poni Breaker Coast",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/24.jpg",
+                        "location": "Poni Breaker Coast",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/22.jpg",
+                        "location": "Poni Coast",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/28.jpg",
+                        "location": "Poni Coast",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/20.jpg",
+                        "location": "Poni Gauntlet",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/21.jpg",
+                        "location": "Poni Gauntlet",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/13.jpg",
+                        "location": "Poni Grove",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/14.jpg",
+                        "location": "Poni Grove",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/17.jpg",
+                        "location": "Poni Meadow",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/15.jpg",
+                        "location": "Poni Plains",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/16.jpg",
+                        "location": "Poni Plains",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/26.jpg",
+                        "location": "Poni Plains",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/3.jpg",
+                        "location": "Poni Wilds",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/4.jpg",
+                        "location": "Poni Wilds",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/23.jpg",
+                        "location": "Poni Wilds",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/18.jpg",
+                        "location": "Resolution Cave - 1F",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/19.jpg",
+                        "location": "Resolution Cave - B1F",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/27.jpg",
+                        "location": "Resolution Cave - B1F",
+                        "notes": "Night"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/8.jpg",
+                        "location": "Ruins of Hope",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/1.jpg",
+                        "location": "Seafolk Village",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/2.jpg",
+                        "location": "Seafolk Village",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/9.jpg",
+                        "location": "Vast Poni Canyon - 2F",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/10.jpg",
+                        "location": "Vast Poni Canyon - 3F",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/12.jpg",
+                        "location": "Vast Poni Canyon - Inside",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/poni/11.jpg",
+                        "location": "Vast Poni Canyon - Top",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/aether/1.jpg",
+                        "location": "Aether Paradise - Hallway",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/aether/2.jpg",
+                        "location": "Aether Paradise - Outside",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/aether/3.jpg",
+                        "location": "Aether Paradise - Outside",
+                        "notes": "Day"
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/aether/4.jpg",
+                        "location": "Aether Paradise - Main Building",
+                        "notes": ""
+                    },
+                    {
+                        "thumbnail": "http://www.serebii.net/sunmoon/zygarde/aether/5.jpg",
+                        "location": "Aether Paradise - Entrance",
+                        "notes": "Night"
+                    }
+                ];
+
+                var app = Elm.Main.embed(document.querySelector("#app"), flags);
+
+                app.ports.portSyncAcquiredCellsToLocal.subscribe(function(model) {
+                    localStorage.setItem('acquiredCells', model);
+                });
+
+                app.ports.portRequestSyncAcquiredCellsFromLocal.subscribe(function() {
+                    app.ports.portResponseSyncAcquiredCellsFromLocal.send(localStorage['acquiredCells']);
+                });
+            })();
+        </script>
+    </body>
+</html>
