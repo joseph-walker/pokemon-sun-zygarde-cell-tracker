@@ -12,6 +12,7 @@ body {
     background-color: #EFEFEF;
     padding: 8px;
     font-family: sans-serif;
+    padding-bottom: 50px
 }
 
 em,
@@ -69,6 +70,7 @@ img {
     border-top: 3px solid #008CBA;
     max-width: 640px;
     margin: auto;
+    box-shadow: 1px 1px 5px rgba(127, 127, 127, 0.1);
 }
 
 .list h1 {
@@ -106,4 +108,41 @@ img {
 
 .cells .check {
     margin-left: auto;
+}
+
+.counter {
+    z-index: 4;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #FFF;
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 8px rgba(127, 127, 127, 0.4);
+    line-height: 42px;
+}
+
+.counter .progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background-color: #008CBA;
+    transition: width 0.25s ease-in-out;
+}
+
+.counter .count {
+    font-size: 1.4rem;
+    color: #008CBA;
+}
+
+.counter .total {
+    font-size: 0.8rem;
+}
+
+.counter .total:before {
+    content: "/";
+    margin: 0 8px;
 }

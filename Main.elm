@@ -85,6 +85,34 @@ viewCell activeCellIndeces index cell =
             , i [] [ text cell.notes ]
             ]
 
+integerPercentage : Int -> Int -> String
+integerPercentage a b =
+    flip (++) "%"
+        << toString
+        << (*) 100
+        <| toFloat a / toFloat b
+
+viewCellCounter : Int -> Int -> List (Html Action)
+viewCellCounter numCells numAcquiredCells =
+    [ div
+        [ class "progress-bar"
+        , style
+            [ ("width", integerPercentage numAcquiredCells numCells)
+            ]
+        ]
+        []
+    , em
+        [ class "count"
+        ]
+        [ text << toString <| numAcquiredCells
+        ]
+    , span
+        [ class "total"
+        ]
+        [ text << toString <| numCells
+        ]
+    ]
+
 view : Model -> Html Action
 view model =
     div
@@ -96,6 +124,10 @@ view model =
             ]
             <| Array.toList
             <| Array.indexedMap (viewCell model.acquiredCells) model.cells
+        , div
+            [ class "counter"
+            ]
+            <| viewCellCounter (Array.length model.cells) (Set.size model.acquiredCells)
         ]
 
 syncAcquiredCellsToLocal : Set Int -> Cmd Action
