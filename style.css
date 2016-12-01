@@ -10,7 +10,7 @@ body {
 
 body {
     background-color: #EFEFEF;
-    padding: 32px;
+    padding: 8px;
     font-family: sans-serif;
 }
 
@@ -41,6 +41,8 @@ ul {
 .list {
     background-color: #FFF;
     border-top: 3px solid #008CBA;
+    max-width: 640px;
+    margin: auto;
 }
 
 .list h1 {
