@@ -487,10 +487,27 @@
                     }
                 ];
 
+                var localStorageIsAvailable = function() {
+                    try {
+                        var storage = window['localStorage'];
+                        var x = '__storage_test__';
+                        storage.setItem(x, x);
+                        storage.removeItem(x);
+                        return true;
+                    }
+                    catch(e) {
+                        return false;
+                    }
+                }();
+
+                if (!localStorageIsAvailable)
+                    alert("Your browser either does not support localstorage or localstorage is disabled. You can still use the application, but your progress will not be saved.");
+
                 var app = Elm.Main.embed(document.querySelector("#app"), flags);
 
                 app.ports.portSyncAcquiredCellsToLocal.subscribe(function(model) {
-                    localStorage.setItem('acquiredCells', model);
+                    if (localStorageIsAvailable)
+                        localStorage.setItem('acquiredCells', model);
                 });
 
                 app.ports.portRequestSyncAcquiredCellsFromLocal.subscribe(function() {

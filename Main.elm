@@ -39,14 +39,6 @@ type alias Model =
 type alias Flags =
     List Cell
 
-init : Flags -> Return Action Model
-init cells =
-    singleton
-        { cells = Array.fromList cells
-        , acquiredCells = empty
-        }
-        |> command (portRequestSyncAcquiredCellsFromLocal "")
-
 acquiredCells : Lens Model (Set Int)
 acquiredCells =
     let
@@ -54,6 +46,21 @@ acquiredCells =
             { model | acquiredCells = val }
     in
         Lens .acquiredCells set
+
+integerPercentage : Int -> Int -> String
+integerPercentage a b =
+    flip (++) "%"
+        << toString
+        << (*) 100
+        <| toFloat a / toFloat b
+
+init : Flags -> Return Action Model
+init cells =
+    singleton
+        { cells = Array.fromList cells
+        , acquiredCells = empty
+        }
+        |> command (portRequestSyncAcquiredCellsFromLocal "")
 
 viewCell : Set Int -> Int -> Cell -> Html Action
 viewCell activeCellIndeces index cell =
@@ -84,13 +91,6 @@ viewCell activeCellIndeces index cell =
                 ]
             , i [] [ text cell.notes ]
             ]
-
-integerPercentage : Int -> Int -> String
-integerPercentage a b =
-    flip (++) "%"
-        << toString
-        << (*) 100
-        <| toFloat a / toFloat b
 
 viewCellCounter : Int -> Int -> List (Html Action)
 viewCellCounter numCells numAcquiredCells =
